@@ -4,12 +4,17 @@ import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import postRoutes from './routes/posts.js'
+
 import * as dotenv from 'dotenv'
+
 dotenv.config()
+
+
 
 //initialize the app 
 const app = express();
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 const CONNECTION_URL = process.env.CONNECTION_URL
 
 
@@ -17,7 +22,7 @@ const CONNECTION_URL = process.env.CONNECTION_URL
 app.use(bodyParser.json({limit: '30mp', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mp', extended: true}));
 app.use(cors());
-
+app.use('/posts', postRoutes)
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => app.listen(PORT, ()=> console.log(`successful connected on${PORT}`)))
