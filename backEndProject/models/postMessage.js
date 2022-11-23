@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 //mongoose Schema
 const postSchema = mongoose.Schema({
@@ -18,5 +18,6 @@ const postSchema = mongoose.Schema({
     }
 });
 //turn in into a model
-const PostMessage = mongoose.model('PostMessage', postSchema)
-export default PostMessage
+const PostMessage = mongoose.model('PostMessage', postSchema);
+
+export default PostMessage;
