@@ -1,10 +1,11 @@
 import React from "react";
 import Post from "./Post/post";
 import useStyles from './styles'
-//to fetch the global redux store
+//to fetch the global redux store global
 import { useSelector } from "react-redux";
 const Posts = () => {
-   const posts = useSelector((state) => state.posts )
+    //initialize as a hook
+    const posts = useSelector((state) => state.posts )
     const classes = useStyles()
     console.log(posts)
     return(
